@@ -15,7 +15,7 @@ def mock_emailer():
 
 class TestCanary:
     
-    def test_it_chirps(self):
+    def test__chirp(self):
         assert 1 == 1
 
 

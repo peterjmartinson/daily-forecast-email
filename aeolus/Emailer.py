@@ -21,3 +21,8 @@ class Emailer:
             server.send_message(outgoing_message)
         return True
 
+    def createOutgoingMessage(self):
+        outgoing_message = EmailMessage()
+        outgoing_message['Subject'] = f'Subject'
+        outgoing_message['To'] = f'Recipient'
+        return outgoing_message
