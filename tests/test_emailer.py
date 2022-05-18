@@ -43,3 +43,29 @@ class TestEmailer_createOutgoingMessage:
         emailer = Emailer.Emailer()
         result = emailer.createOutgoingMessage()
         assert 'To' in result.keys()
+
+    @patch('builtins.input', side_effect=['Test Email', 'Test Password'])
+    @patch('aeolus.Emailer.smtplib')
+    @patch('aeolus.Emailer.ssl')
+    def test__returns_a_body(self, mock_ssl, mock_smtplib, mock_input):
+        emailer = Emailer.Emailer()
+        result = emailer.createOutgoingMessage()
+        assert result.get_content()[:10] == 'Empty Body'
+
+
+
+    # @patch('hermes.Hermes.Hermes.getFileInfo')
+    # def test__returns_a_message(self, patched_method, mock_emailer, mock_conn, new_file_info):
+    #     db_handler = EDWAccess.EDWAccess(connection=mock_conn)
+    #     hermes = Hermes.Hermes(emailer=mock_emailer, db_handler=db_handler)
+    #     test_file_info = new_file_info
+    #     test_file_id = test_file_info['FileID']
+    #     patched_method.return_value = test_file_info
+    #     result = hermes.createOutgoingMessage(test_file_id)
+    #     assert result.get_content()[:10] == 'Greetings,'
+
+
+
+
+
+
