@@ -21,13 +21,11 @@ class Emailer:
             server.send_message(outgoing_message)
         return True
 
-    def createOutgoingMessage(self, message=None):
-        if not message:
-            message = 'Empty Body'
+    def createOutgoingMessage(self, subject='Subject', recipient='Recipient', message='Empty Body'):
         outgoing_message = EmailMessage()
         outgoing_message.set_content(message)
-        outgoing_message['Subject'] = f'Subject'
-        outgoing_message['To'] = f'Recipient'
+        outgoing_message['Subject'] = subject
+        outgoing_message['To'] = recipient
         return outgoing_message
 
 
