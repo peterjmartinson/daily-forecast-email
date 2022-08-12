@@ -21,14 +21,7 @@ class TestCanary:
 
 
 
-class TestAeolus_createOutgoingMessage:
+class TestAeolus_sendEmail:
 
-    def test__returns_a_subject(self, mock_emailer):
-        aeolus = Aeolus.Aeolus(emailer=mock_emailer)
-        result = aeolus.createOutgoingMessage()
-        assert 'Subject' in result.keys()
-
-    def test__returns_a_recipient(self, mock_emailer):
-        aeolus = Aeolus.Aeolus(emailer=mock_emailer)
-        result = aeolus.createOutgoingMessage()
-        assert 'To' in result.keys()
+    def test__sendWeatherEmail(self):
+        pass

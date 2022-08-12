@@ -4,11 +4,11 @@ from email.message import EmailMessage
 
 class Emailer:
 
-    sender_email = 'hermesdev41@gmail.com'
+    sender_email = 'aeolus.nws@gmail.com'
     password = None
     
     def __init__(self):
-        print(f'Hermes email address:  {self.sender_email}')
+        print(f'Aeolus email address:  {self.sender_email}')
         self.sender_email = input('Type your sender email and press enter:  ')
         self.password = input('Type your password and press enter:  ')
 
@@ -21,8 +21,12 @@ class Emailer:
             server.send_message(outgoing_message)
         return True
 
-    def createOutgoingMessage(self):
+    def createOutgoingMessage(self, subject='Subject', recipient='Recipient', message='Empty Body'):
         outgoing_message = EmailMessage()
-        outgoing_message['Subject'] = f'Subject'
-        outgoing_message['To'] = f'Recipient'
+        outgoing_message.set_content(message)
+        outgoing_message['Subject'] = subject
+        outgoing_message['To'] = recipient
         return outgoing_message
+
+
+
